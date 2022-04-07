@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from prediction import get_prediction, original_encoder
 from load_model import get_model
 
-rf_model = get_model(model_path = r'model.pkl')
+rf_model = get_model(model_path = r'Model/model.pkl')
 
 
 st.set_page_config(page_title="Accident Severity Prediction App",

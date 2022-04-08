@@ -142,7 +142,7 @@ def main():
         else:
           severity = "Fatal"
 
-        st.write(f"The predicted severity is {severity}"
+        st.write(f"The predicted severity is {severity}")
 
 
 if __name__ == '__main__':

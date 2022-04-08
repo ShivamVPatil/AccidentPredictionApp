@@ -14,7 +14,7 @@ st.set_page_config(page_title="Accident Severity Prediction App",
 
 
 #creating option list for dropdown menu
-
+options_day = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
 options_age = ['18-30', '31-50', 'Over 51', 'Unknown', 'Under 18']
 
 options_acc_area = ['Other', 'Office areas', 'Residential areas', ' Church areas',
@@ -76,7 +76,6 @@ options_Pedestrian_movement = ['Not a Pedestrian', "Crossing from driver's nears
        'Walking along in carriageway, facing traffic',
        'In carriageway, statioNot a Pedestrianry - not crossing  (standing or playing) - masked by parked or statioNot a Pedestrianry vehicle']
 
-options_Age_band_of_casualty = ['na', '31-50', '18-30', 'Under 18', 'Over 51', '5']
 
 
 
@@ -89,8 +88,7 @@ def main():
 
         st.subheader("Enter the input for following features:")
         
-        hour = st.slider("Pickup Hour: ", 0, 23, value=0, format="%d")
-        casualties = st.slider("Hour of Accident: ", 1, 8, value=0, format="%d")
+        hour = st.slider("Hour: ", 0, 23, value=0, format="%d")
         accident_cause = st.selectbox("Select Accident Cause: ", options=options_cause)
         vehicles_involved = st.slider("Pickup Hour: ", 1, 7, value=0, format="%d")
         vehicle_type = st.selectbox("Select Vehicle Type: ", options=options_vehicle_type)
@@ -98,15 +96,14 @@ def main():
         accident_area = st.selectbox("Select Accident Area: ", options=options_acc_area)
         driving_experience = st.selectbox("Select Driving Experience: ", options=options_driver_exp)
         lanes = st.selectbox("Select Lanes: ", options=options_lanes)
-        Road_allignment = st.selectbox("Select Road allignment: ", options=options_Road_allignment)
-        Types_of_Junction = st.selectbox("Select Type of junction: ", options=options_Types_of_Junction)
-        Road_surface_conditions = st.selectbox("Select Road condition: ", options=options_Road_surface_conditions)
-        Light_conditions = st.selectbox("Select Light condition: ", options=options_Light_conditions)
-        Weather_conditions = st.selectbox("Select weather condition: ", options=options_Weather_conditions)
-        Type_of_collision = st.selectbox("Select type of collision: ", options=options_Type_of_collision)
-        Number_of_vehicles_involved = st.slider("Number of vehicles involved: ", 1, 8, value=2, format="%d")
-        Pedestrian_movement = st.selectbox("Select pedestrian movement: ", options=options_Pedestrian_movement)
-        Age_band_of_casualty = st.slider("Age band of casualty: ", 0, 60, value=30, format="%d")
+        road_allignment = st.selectbox("Select Road allignment: ", options=options_Road_allignment)
+        junction_type= st.selectbox("Select Type of junction: ", options=options_Types_of_Junction)
+        road_surface_conditions = st.selectbox("Select Road condition: ", options=options_Road_surface_conditions)
+        light_condition = st.selectbox("Select Light condition: ", options=options_Light_conditions)
+        weather_condition = st.selectbox("Select weather condition: ", options=options_Weather_conditions)
+        collision_type = st.selectbox("Select type of collision: ", options=options_Type_of_collision)
+        vehicles_involved = st.slider("Number of vehicles involved: ", 1, 8, value=2, format="%d")
+        pedestrian_movement = st.selectbox("Select pedestrian movement: ", options=options_Pedestrian_movement)
         submit = st.form_submit_button("Predict")
 
 
@@ -119,21 +116,21 @@ def main():
         accident_area =  original_encoder(accident_area, options_acc_area)
         driving_experience = original_encoder(driving_experience, options_driver_exp) 
         lanes = original_encoder(lanes, options_lanes)
-        Road_allignment =original_encoder(Road_allignment, options_Road_allignment) 
-        Types_of_Junction = original_encoder(Types_of_Junction, options_Types_of_Junction) 
-        Road_surface_conditions = original_encoder(Road_surface_conditions, options_Road_surface_conditions) 
-        Light_conditions = original_encoder(Light_conditions, options_Light_conditions) 
-        Weather_conditions = original_encoder(Weather_conditions, options_Weather_conditions) 
-        Type_of_collision = original_encoder(Type_of_collision, options_Type_of_collision) 
-        Pedestrian_movement = original_encoder(Pedestrian_movement, options_Pedestrian_movement) 
+        road_allignment =original_encoder(road_allignment, options_Road_allignment) 
+        junction_type = original_encoder(junction_type, options_Types_of_Junction) 
+        road_surface_conditions = original_encoder(road_surface_conditions, options_Road_surface_conditions) 
+        light_condition = original_encoder(light_condition, options_Light_conditions) 
+        weather_condition = original_encoder(weather_condition, options_Weather_conditions) 
+        collision_type = original_encoder(collision_type, options_Type_of_collision) 
+        pedestrian_movement = original_encoder(pedestrian_movement, options_Pedestrian_movement) 
         
 
 
-        data = np.array([hour,casualties,accident_cause,vehicles_involved, 
+        data = np.array([hour,accident_cause,vehicles_involved, 
                             vehicle_type,driver_age,accident_area,driving_experience,
-                            lanes,Road_allignment,Types_of_Junction,Road_surface_conditions,
-                            Light_conditions,Weather_conditions,Type_of_collision,Number_of_vehicles_involved,
-                            Pedestrian_movement,Age_band_of_casualty
+                            lanes,road_allignment,junction_type,road_surface_conditions,
+                            light_condition,weather_condition,collision_type,Number_of_vehicles_involved,
+                            pedestrian_movement
                             ]).reshape(1,-1)
         print(data)
         pred = get_prediction(data=data, model=rf_model)

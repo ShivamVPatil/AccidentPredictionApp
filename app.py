@@ -87,7 +87,7 @@ def main():
     with st.form('prediction_form'):
 
         st.subheader("Enter the input for following features:")
-        
+        day_of_week =st.selectbox("Day: ",options=options_day) 
         hour = st.slider("Hour: ", 0, 23, value=0, format="%d")
         accident_cause = st.selectbox("Select Accident Cause: ", options=options_cause)
         vehicles_involved = st.slider("Pickup Hour: ", 1, 7, value=0, format="%d")
@@ -109,7 +109,7 @@ def main():
 
 
     if submit:
-        
+        day_of_week = original_encoder(day_of_week, options_day)
         accident_cause = original_encoder(accident_cause, options_cause)
         vehicle_type =original_encoder(vehicle_type, options_vehicle_type)
         driver_age =  original_encoder(driver_age, options_age)
@@ -126,7 +126,7 @@ def main():
         
 
 
-        data = np.array([hour,accident_cause,vehicles_involved, 
+        data = np.array([day_of_week,hour,accident_cause,vehicles_involved, 
                             vehicle_type,driver_age,accident_area,driving_experience,
                             lanes,road_allignment,junction_type,road_surface_conditions,
                             light_condition,weather_condition,collision_type,Number_of_vehicles_involved,

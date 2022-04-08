@@ -135,7 +135,14 @@ def main():
         print(data)
         pred = get_prediction(data=data, model=rf_model)
 
-        st.write(f"The predicted severity is:  {pred[0]}")
+        if pred == 0:
+           severity = "Slight"
+        elif pred == 1:
+          severity = "Serious"
+        else:
+          severity = "Fatal"
+
+        st.write(f"The predicted severity is {severity}"
 
 
 if __name__ == '__main__':

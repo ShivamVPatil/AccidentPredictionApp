@@ -129,7 +129,7 @@ def main():
         data = np.array([day_of_week,hour,accident_cause,vehicles_involved, 
                             vehicle_type,driver_age,accident_area,driving_experience,
                             lanes,road_allignment,junction_type,road_surface_conditions,
-                            light_condition,weather_condition,collision_type,Number_of_vehicles_involved,
+                            light_condition,weather_condition,collision_type,vehicles_involved,
                             pedestrian_movement
                             ]).reshape(1,-1)
         print(data)

@@ -1,6 +1,6 @@
 import joblib
 import numpy as np
-from sklearn.ensemble import RandomForestClassifier
+from sklearn import *
 
 
 def original_encoder(input_val, feats): 

@@ -113,7 +113,7 @@ def main():
 
     if submit:
         
-        accident_cause = LabelEncoder(accident_cause, options_cause)
+        accident_cause = original_Encoder(accident_cause, options_cause)
         vehicle_type = LabelEncoder(vehicle_type, options_vehicle_type)
         driver_age =  LabelEncoder(driver_age, options_age)
         accident_area =  LabelEncoder(accident_area, options_acc_area)

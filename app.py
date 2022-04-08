@@ -113,19 +113,19 @@ def main():
 
     if submit:
         
-        accident_cause = original_Encoder(accident_cause, options_cause)
-        vehicle_type = LabelEncoder(vehicle_type, options_vehicle_type)
-        driver_age =  LabelEncoder(driver_age, options_age)
-        accident_area =  LabelEncoder(accident_area, options_acc_area)
-        driving_experience = LabelEncoder(driving_experience, options_driver_exp) 
-        lanes = LabelEncoder(lanes, options_lanes)
-        Road_allignment = LabelEncoder(Road_allignment, options_Road_allignment) 
-        Types_of_Junction = LabelEncoder(Types_of_Junction, options_Types_of_Junction) 
-        Road_surface_conditions = LabelEncoder(Road_surface_conditions, options_Road_surface_conditions) 
-        Light_conditions = LabelEncoder(Light_conditions, options_Light_conditions) 
-        Weather_conditions = LabelEncoder(Weather_conditions, options_Weather_conditions) 
-        Type_of_collision = LabelEncoder(Type_of_collision, options_Type_of_collision) 
-        Pedestrian_movement = LabelEncoder(Pedestrian_movement, options_Pedestrian_movement) 
+        accident_cause = original_encoder(accident_cause, options_cause)
+        vehicle_type =original_encoder(vehicle_type, options_vehicle_type)
+        driver_age =  original_encoder(driver_age, options_age)
+        accident_area =  original_encoder(accident_area, options_acc_area)
+        driving_experience = original_encoder(driving_experience, options_driver_exp) 
+        lanes = original_encoder(lanes, options_lanes)
+        Road_allignment =original_encoder(Road_allignment, options_Road_allignment) 
+        Types_of_Junction = original_encoder(Types_of_Junction, options_Types_of_Junction) 
+        Road_surface_conditions = original_encoder(Road_surface_conditions, options_Road_surface_conditions) 
+        Light_conditions = original_encoder(Light_conditions, options_Light_conditions) 
+        Weather_conditions = original_encoder(Weather_conditions, options_Weather_conditions) 
+        Type_of_collision = original_encoder(Type_of_collision, options_Type_of_collision) 
+        Pedestrian_movement = original_encoder(Pedestrian_movement, options_Pedestrian_movement) 
         
 
 

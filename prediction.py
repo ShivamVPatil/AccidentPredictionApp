@@ -1,6 +1,6 @@
 import joblib
 import numpy as np
-from sklearn import ExtraTreesClassifier
+from sklearn.ensemble import ExtraTreesClassifier
 
 
 def original_encoder(input_val, feats): 

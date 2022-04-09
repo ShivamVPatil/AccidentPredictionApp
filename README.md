@@ -15,7 +15,7 @@ Step 5 : Hyperparameter Tuning
 Step 6 : Load model into a .pkl/.joblib file
 
 
-#Deployment 
+# Deployment 
 Step 1 : create app.py for front-end
 Step 2 : load model using gdrive(for large file size)
 Step 3 : load necessary files into github like Procfile, setup.sh, requirements.txt, runtime.txt
